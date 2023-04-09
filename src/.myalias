@@ -1,0 +1,89 @@
+# file browsing aliases
+
+alias ls="exa"
+alias sl="exa"
+alias ll="exa -l"
+alias la="exa -la"
+alias l.='exa -la .*'
+alias lg='exa -l --git'
+
+alias lt='exa --tree'
+
+alias ..='cd ..'
+
+alias path='echo -e ${PATH//:/\\n}'
+
+alias rm='rm -I' # secure RM
+alias rmr='rm -I -r'
+
+alias tree='tree -C' #colored tree
+
+# grep aliases
+
+alias cat='bat'
+
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# editor alias
+
+alias e='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias editor='nvim'
+alias edit='nvim'
+alias sshconfig='nvim ~/.ssh/config'
+alias myalias='nvim ~/.myalias; source ~/.myalias'
+
+# git aliases
+
+alias gits="git status"
+alias gitc="git commit"
+alias gita="git add"
+alias gitf="git fetch"
+alias gitp="git pull"
+alias gitpp="git push"
+alias gitr="git rm"
+alias branches="git branch -r"
+alias gitch="git checkout"
+function gitd() {
+    git diff --name-only --relative --diff-filter=d | xargs bat --diff
+}
+
+alias hash="sha256sum"
+
+# app aliases
+
+alias code="/Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code"
+
+function Safari {
+    # Will open a New Safari window with argument 1.
+
+osascript <<EOD
+tell application "Safari" to make new document with properties {URL:"$1"}
+return
+EOD
+
+}
+
+alias p="python3"
+
+function sp() {
+  if [ $# -eq 0 ]; then
+    venv_path='.venv'
+  else
+    venv_path=$1
+  fi
+  source $venv_path/bin/activate
+}
+
+# time control
+
+alias now='date +"%T"'
+alias nowtime=now
+alias nowdate='date +"%d-%m-%Y"'
+alias afk='pmset displaysleepnow'
+
+# sshfs control
+
